@@ -25,24 +25,38 @@ namespace OOPRGR
         {
             get { return _fullName; }
         }
+        public string Position
+        {
+            get { return _position; }
+            set { _position = value; }
+        }
+        public uint Salary
+        {
+            get { return _salary; }
+            set { _salary = value; }
+        }
+        public string DiplomInfo
+        {
+            get { return _diplomNumber; }
+        }
         public void Enter()
         {
-            Console.WriteLine("Работник " + _fullName + " зашел в библиотеку.");
+            Console.WriteLine("Работник " + Name + " зашел в библиотеку.");
         }
 
         public void Leave()
         {
-            Console.WriteLine("Работник " + _fullName + " вышел из библиотеки.");
+            Console.WriteLine("Работник " + Name + " вышел из библиотеки.");
         }
 
         public virtual void Action()
         {
-            Console.WriteLine("Работник " + _fullName + " приступил к работе.");
+            Console.WriteLine("Работник " + Name + " приступил к работе.");
         }
 
         public void EndJob()
         {
-            Console.WriteLine("Работник " + _fullName + " закончил работу.");
+            Console.WriteLine("Работник " + Name + " закончил работу.");
         }
     }
 }

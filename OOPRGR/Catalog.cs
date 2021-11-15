@@ -8,6 +8,15 @@ namespace OOPRGR
 {
     class Catalog
     {
-
+        private List<Book> _avaliableBooks;
+        public Catalog()
+        {
+            _avaliableBooks = new List<Book>();
+        }
+        public List<Book> GetCatalog { get { return _avaliableBooks; } }
+        public void AddBooks(Book b)
+        {
+            _avaliableBooks.Add(b);
+        }
     }
 }

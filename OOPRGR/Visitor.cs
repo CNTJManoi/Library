@@ -16,8 +16,21 @@ namespace OOPRGR
         private uint _phoneNumber;
         private uint _readerTicketNumber;
         private List<Book> _listBooks;
+        private bool _inLibrary;
         #endregion
-
+        #region Конструктор
+        public Visitor(string fullName, uint seriesPassport,uint  numberPassport, string address, uint phoneNumber, uint readetTicketNumber)
+        {
+            _fullName = fullName;
+            _seriesPassport = seriesPassport;
+            _numberPassport = numberPassport;
+            _address = address;
+            _phoneNumber = phoneNumber;
+            _readerTicketNumber = readetTicketNumber;
+            _listBooks = new List<Book>();
+            _inLibrary = false;
+        }
+        #endregion
         #region Свойства
         public string Name
         {
@@ -55,23 +68,47 @@ namespace OOPRGR
         #region Реализация интерфейса
         public void Enter()
         {
-
+            if (!_inLibrary)
+            {
+                _inLibrary = true;
+                Console.WriteLine("Посетитель " + _fullName + " зашел в библиотеку.");
+                
+            }
+            else
+            {
+                Console.WriteLine("Посетитель " + _fullName + " уже в библиотеке!");
+            }
         }
 
         public void Leave()
         {
-            throw new NotImplementedException();
+            if (_inLibrary)
+            {
+                _inLibrary = false;
+                Console.WriteLine("Посетитель " + _fullName + " вышел из библиотеки.");
+            }
+            else
+            {
+                Console.WriteLine("Посетитель " + _fullName + " не был в библиотеке!");
+            }
         }
 
         public void Action()
         {
-            throw new NotImplementedException();
+            if (_inLibrary)
+            {
+
+            }
+            else
+            {
+                Console.WriteLine("Посетитель находится не в библиотеке.");
+            }
         }
         #endregion
 
         #region Методы
 
-        public void TakeBook()
+        public void TakeBook(uint id)
         {
 
         }
