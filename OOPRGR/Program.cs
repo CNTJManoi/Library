@@ -11,7 +11,9 @@ namespace OOPRGR
         {
             _defaultForeground = Console.ForegroundColor;
             _defaultBackground = Console.BackgroundColor;
+
             #region Тестовые данные
+
             //Тестовые данные
             var l = new Library("Хорошее место", "Каждый день с 8:00 до 22:00", "Не шуметь...", new Catalog());
             Employee director1 = new Director("Иванченко Владислав Антонович", "5004-354956", 85000);
@@ -24,9 +26,11 @@ namespace OOPRGR
             l.AddVisitor(v);
             l.AddEmployee(director1);
             //Тестовые данные
+
             #endregion
-            bool StopAll = false;
-            while (!StopAll)
+
+            var stopAll = false;
+            while (!stopAll)
             {
                 Console.Clear();
                 SetConsoleNotificationColor();
@@ -206,21 +210,22 @@ namespace OOPRGR
                                 }
 
                             Console.Clear();
-                            
+
                             switch (action31)
                             {
                                 case 1:
                                     SetConsoleNotificationColor();
                                     Console.WriteLine("Взять книгу");
                                     SetConsoleDefaultColor();
-                                    if (!l.Visitors[(int)number].InLibrary)
+                                    if (!l.Visitors[(int) number].InLibrary)
                                     {
-                                        Console.WriteLine("Посетитель " + l.Visitors[(int)number].Name +
+                                        Console.WriteLine("Посетитель " + l.Visitors[(int) number].Name +
                                                           " не в библиотеке!");
                                         Console.WriteLine("Нажмите любую клавишу...");
                                         Console.ReadKey();
                                         break;
                                     }
+
                                     Console.WriteLine("Введите id книги, которую хотите взять");
                                     l.BooksList();
                                     Console.Write("Ваш выбор: ");
@@ -238,7 +243,7 @@ namespace OOPRGR
                                         }
 
                                     Console.WriteLine();
-                                     if (l.GetCatalog.BookList[(int) (selectedBook - 1)].Count > 0)
+                                    if (l.GetCatalog.BookList[(int) (selectedBook - 1)].Count > 0)
                                     {
                                         l.Visitors[(int) number]
                                             .TakeBook(l.GetCatalog.BookList[(int) (selectedBook - 1)]);
@@ -258,14 +263,15 @@ namespace OOPRGR
                                     SetConsoleNotificationColor();
                                     Console.WriteLine("Взять журнал");
                                     SetConsoleDefaultColor();
-                                    if (!l.Visitors[(int)number].InLibrary)
+                                    if (!l.Visitors[(int) number].InLibrary)
                                     {
-                                        Console.WriteLine("Посетитель " + l.Visitors[(int)number].Name +
+                                        Console.WriteLine("Посетитель " + l.Visitors[(int) number].Name +
                                                           " не в библиотеке!");
                                         Console.WriteLine("Нажмите любую клавишу...");
                                         Console.ReadKey();
                                         break;
                                     }
+
                                     Console.WriteLine("Введите id журнала, который хотите взять");
                                     l.JournalList();
                                     Console.Write("Ваш выбор: ");
@@ -283,17 +289,18 @@ namespace OOPRGR
                                         }
 
                                     Console.WriteLine();
-                                    if (l.GetCatalog.JournalList[(int)(selectedJournal - 1)].Count > 0)
+                                    if (l.GetCatalog.JournalList[(int) (selectedJournal - 1)].Count > 0)
                                     {
-                                        l.Visitors[(int)number]
-                                            .TakeJournal(l.GetCatalog.JournalList[(int)(selectedJournal - 1)]);
-                                        l.GetCatalog.JournalList[(int)(selectedJournal - 1)].Count -= 1;
+                                        l.Visitors[(int) number]
+                                            .TakeJournal(l.GetCatalog.JournalList[(int) (selectedJournal - 1)]);
+                                        l.GetCatalog.JournalList[(int) (selectedJournal - 1)].Count -= 1;
                                     }
                                     else
                                     {
                                         Console.WriteLine("Этого журнала нет в наличии");
                                         break;
                                     }
+
                                     Console.WriteLine("Успешно!");
                                     Console.WriteLine("Нажмите любую клавишу...");
                                     Console.ReadKey();
@@ -397,7 +404,6 @@ namespace OOPRGR
                             Console.Write("Ваш выбор: ");
                             var action41 = byte.MaxValue;
                             while (action41 == byte.MaxValue)
-                            {
                                 try
                                 {
                                     action41 = byte.Parse(Console.ReadLine());
@@ -408,7 +414,6 @@ namespace OOPRGR
                                     action41 = byte.MaxValue;
                                     Console.WriteLine("Введите корректное значение!");
                                 }
-                            }
 
                             Console.Clear();
                             switch (action41)
@@ -595,10 +600,11 @@ namespace OOPRGR
                         l.OpenOrClose = false;
                         break;
                     case 0:
-                        StopAll = true;
+                        stopAll = true;
                         break;
                 }
-                if(StopAll) Console.WriteLine("Завершение программы...");
+
+                if (stopAll) Console.WriteLine("Завершение программы...");
                 Console.WriteLine("Нажмите любую клавишу...");
                 Console.ReadKey();
             }
