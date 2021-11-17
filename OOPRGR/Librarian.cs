@@ -8,6 +8,8 @@ namespace OOPRGR
 {
     class Librarian : Employee
     {
-
+        public Librarian(string fullName, string diplomNumber, uint salary) : base(fullName, diplomNumber, "Библиотекарь", salary)
+        {
+        }
     }
 }

@@ -25,6 +25,20 @@ namespace OOPRGR
             _visitors = new List<Visitor>();
         }
         public Catalog GetCatalog { get { return _catalog; } }
+        public string Name
+        {
+            get { return _name; }
+        }
+        public string TimeTable
+        {
+            get { return _timetable; }
+            set { _timetable = value; }
+        }
+        public string Rules
+        {
+            get { return _rules; }
+            set { _rules = value; }
+        }
         public void GetListEmployees()
         {
             Console.WriteLine("В данный момент в библиотеке работают: ");

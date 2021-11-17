@@ -13,13 +13,14 @@ namespace OOPRGR
         private uint _seriesPassport;
         private uint _numberPassport;
         private string _address;
-        private uint _phoneNumber;
-        private uint _readerTicketNumber;
+        private ulong _phoneNumber;
+        private ulong _readerTicketNumber;
         private List<Book> _listBooks;
         private bool _inLibrary;
         #endregion
+
         #region Конструктор
-        public Visitor(string fullName, uint seriesPassport,uint  numberPassport, string address, uint phoneNumber, uint readetTicketNumber)
+        public Visitor(string fullName, uint seriesPassport,uint  numberPassport, string address, ulong phoneNumber, ulong readetTicketNumber)
         {
             _fullName = fullName;
             _seriesPassport = seriesPassport;
@@ -31,15 +32,11 @@ namespace OOPRGR
             _inLibrary = false;
         }
         #endregion
+
         #region Свойства
         public string Name
         {
             get { return _fullName;}
-            set
-            {
-                if (value != "") _fullName = value;
-                else throw new Exception("Неверный аргумент.");
-            }
         }
         public uint SeriesPassport
         {
@@ -54,13 +51,12 @@ namespace OOPRGR
             get { return _address; }
             set { _address = value; }
         }
-        public uint PhoneNumber {
+        public ulong PhoneNumber {
             get { return _phoneNumber; }
             set { _phoneNumber = value; }
         }
-        public uint ReaderTicketNumber {
+        public ulong ReaderTicketNumber {
             get { return _readerTicketNumber; }
-            set { _readerTicketNumber = value; }
         }
 
         #endregion

@@ -8,6 +8,8 @@ namespace OOPRGR
 {
     class Cleaner : Employee
     {
-
+        public Cleaner(string fullName, string diplomNumber, uint salary) : base(fullName, diplomNumber, "Уборщик", salary)
+        {
+        }
     }
 }
