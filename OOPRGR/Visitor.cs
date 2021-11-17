@@ -85,7 +85,7 @@ namespace OOPRGR
             }
             else
             {
-                Console.WriteLine("Посетитель " + _fullName + " не был в библиотеке!");
+                Console.WriteLine("Посетитель " + _fullName + " находится не в библиотеке!");
             }
         }
 
@@ -100,13 +100,25 @@ namespace OOPRGR
                 Console.WriteLine("Посетитель находится не в библиотеке.");
             }
         }
+        public void Walk()
+        {
+            if (_inLibrary)
+            {
+                Console.WriteLine("Посетитель " + _fullName + " ходит по библиотеке!");
+            }
+            else
+            {
+                Console.WriteLine("Посетитель " + _fullName + " находится не в библиотеке!");
+            }
+        }
+
         #endregion
 
         #region Методы
 
-        public void TakeBook(uint id)
+        public void TakeBook(Book b)
         {
-
+            _listBooks.Add(b);
         }
 
         #endregion

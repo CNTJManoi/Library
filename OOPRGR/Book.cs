@@ -44,11 +44,11 @@ namespace OOPRGR
         public string GetGenre { get { return _genre; } }
         public uint GetNumberPages { get { return _numberPages; } }
         public string GetISBN { get { return _ISBN; } }
-        public string GetLocation { 
+        public string Location { 
             get { return _location; } 
             set { _location = value; }
         }
-        public uint GetCount { 
+        public uint Count { 
             get { return _count; }
             set { _count = value; }
         }

@@ -11,5 +11,9 @@ namespace OOPRGR
         public Librarian(string fullName, string diplomNumber, uint salary) : base(fullName, diplomNumber, "Библиотекарь", salary)
         {
         }
+        public override void Action()
+        {
+            Console.WriteLine("Библиотекарь " + Name + " приступил к своим обязаностям.");
+        }
     }
 }

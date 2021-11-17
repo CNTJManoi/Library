@@ -13,7 +13,7 @@ namespace OOPRGR
         {
             _avaliableBooks = new List<Book>();
         }
-        public List<Book> GetCatalog { get { return _avaliableBooks; } }
+        public List<Book> CatalogList { get { return _avaliableBooks; } }
         public void AddBooks(Book b)
         {
             _avaliableBooks.Add(b);

@@ -54,9 +54,15 @@ namespace OOPRGR
             Console.WriteLine("Работник " + Name + " приступил к работе.");
         }
 
+        public void Walk()
+        {
+            Console.WriteLine("Работник " + Name + " ходит по библиотеке.");
+        }
+
         public void EndJob()
         {
             Console.WriteLine("Работник " + Name + " закончил работу.");
         }
+
     }
 }

@@ -11,5 +11,9 @@ namespace OOPRGR
         public Cleaner(string fullName, string diplomNumber, uint salary) : base(fullName, diplomNumber, "Уборщик", salary)
         {
         }
+        public override void Action()
+        {
+            Console.WriteLine("Уборщик " + Name + " начал убирать в библиотеке.");
+        }
     }
 }
