@@ -1,29 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOPRGR
 {
     class Employee : IPerson
     {
+        #region Поля
         private string _fullName;
         private string _diplomNumber;
         private string _position;
         private uint _salary;
+        private bool _inLibrary;
+        private bool _doJob;
+        #endregion
 
+        #region Конструктор
         public Employee(string fullName, string diplomNumber, string position, uint salary)
         {
             _fullName = fullName;
             _diplomNumber = diplomNumber;
             _position = position;
             _salary = salary;
+            _inLibrary = false;
+            _doJob = false;
         }
+        #endregion
 
+        #region Свойства
         public string Name
         {
             get { return _fullName; }
+        }
+        public bool InLibrary
+        {
+            get { return _inLibrary; }
+            private set { _inLibrary = value; }
+        }
+        public bool DoJob
+        {
+            get { return _doJob; }
+            private set { _doJob = value; }
         }
         public string Position
         {
@@ -39,30 +54,90 @@ namespace OOPRGR
         {
             get { return _diplomNumber; }
         }
+        #endregion
+
+        #region Реализация интерфейса
         public void Enter()
         {
-            Console.WriteLine("Работник " + Name + " зашел в библиотеку.");
+            if (!InLibrary)
+            {
+                Console.WriteLine("Работник " + Name + " зашел в библиотеку.");
+                InLibrary = true;
+            }
+            else
+            {
+                Console.WriteLine("Работник " + Name + " уже в библиотеке.");
+            }
         }
 
         public void Leave()
         {
-            Console.WriteLine("Работник " + Name + " вышел из библиотеки.");
+            if (InLibrary)
+            {
+                Console.WriteLine("Работник " + Name + " вышел из библиотеки.");
+                InLibrary = false;
+            }
+            else
+            {
+                Console.WriteLine("Работник " + Name + " не в библиотеке.");
+            }
         }
 
         public virtual void Action()
         {
-            Console.WriteLine("Работник " + Name + " приступил к работе.");
+            if (DoJob)
+            {
+                EndJob();
+            }
+            else
+            {
+                StartJob();
+            }
         }
 
         public void Walk()
         {
-            Console.WriteLine("Работник " + Name + " ходит по библиотеке.");
+            if (InLibrary)
+            {
+                Console.WriteLine("Работник " + Name + " ходит по библиотеке.");
+            }
+            else
+            {
+                Console.WriteLine("Работник " + Name + " не в библиотеке.");
+            }
         }
+        #endregion
 
+        #region Методы
+        public void StartJob()
+        {
+            if (!DoJob)
+            {
+                Console.WriteLine("Работник " + Name + " приступил к работе.");
+                DoJob = true;
+            }
+            else
+            {
+                Console.WriteLine("Работник " + Name + " и так работает.");
+            }
+        }
         public void EndJob()
         {
-            Console.WriteLine("Работник " + Name + " закончил работу.");
+            if (DoJob)
+            {
+                Console.WriteLine("Работник " + Name + " заканчивает работать.");
+                DoJob = false;
+            }
+            else
+            {
+                Console.WriteLine("Работник " + Name + " уже не работает.");
+            }
         }
 
+        public virtual void DoOneJob()
+        {
+            Console.WriteLine("Рабочий " + Name + " совершает одно рабочее действие.");
+        }
+        #endregion
     }
 }

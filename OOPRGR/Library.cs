@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOPRGR
 {
     class Library
     {
+        #region Поля
         private string _name;
         private string _timetable;
         private string _rules;
@@ -15,7 +13,9 @@ namespace OOPRGR
         private Catalog _catalog;
         private List<Employee> _employees;
         private List<Visitor> _visitors;
+        #endregion
 
+        #region Конструктор
         public Library(string name, string timetable, string rules, Catalog catalog)
         {
             _name = name;
@@ -25,8 +25,10 @@ namespace OOPRGR
             _isOpen = false;
             _employees = new List<Employee>();
             _visitors = new List<Visitor>();
-            
         }
+        #endregion
+
+        #region Свойства
         public Catalog GetCatalog { get { return _catalog; } }
 
         public List<Employee> Employees
@@ -56,43 +58,59 @@ namespace OOPRGR
             get { return _isOpen; }
             set { _isOpen = value; }
         }
-        public void GetListEmployees()
+        #endregion
+
+        #region Методы
+        public void ListEmployees()
         {
             int i = 1;
             Console.WriteLine("В данный момент в библиотеке работают: ");
             foreach (var emp in _employees)
             {
                 Console.WriteLine(i.ToString() + ": " + emp.Position + ": " + emp.Name + " с зарплатой " + emp.Salary);
-            }
-        }
-        public void GetBooksList()
-        {
-            Console.WriteLine("Список книг в библиотеке: ");
-            int i = 1;
-            foreach (var book in _catalog.CatalogList)
-            {
-                Console.WriteLine(i.ToString() + ": " + book.GetName + "/" + book.GetAuthor + "/" + book.GetPublication +
-                    "/" + book.GetNumberPages + "/" + book.GetISBN + " находится " + book.Location + " в количестве " + book.Count);
                 i++;
             }
         }
-        public void GetVisitors()
+        public void BooksList()
+        {
+            Console.WriteLine("Список книг в библиотеке: ");
+            int i = 1;
+            foreach (var book in _catalog.BookList)
+            {
+                Console.WriteLine(i.ToString() + ": " + book.GetName + "/" + book.GetAuthor + "/" + book.GetPublication +
+                                  "/" + book.GetNumberPages + "/" + book.GetISBN + " находится: " + book.Location + " в количестве " + book.Count);
+                i++;
+            }
+        }
+        public void JournalList()
+        {
+            Console.WriteLine("Список журналов в библиотеке: ");
+            int i = 1;
+            foreach (var book in _catalog.JournalList)
+            {
+                Console.WriteLine(i.ToString() + ": " + book.GetName + "/" + book.GetAuthor
+                                  + " находится: " + book.Location + " в количестве " + book.Count);
+                i++;
+            }
+        }
+        public void VisitorsList()
         {
             int i = 1;
             Console.WriteLine("Посетители в библиотеке: ");
             foreach (var vs in _visitors)
             {
                 Console.WriteLine(i.ToString() + ": " + vs.Name + ". Номер читательского билета: " + vs.ReaderTicketNumber);
+                i++;
             }
         }
         public void AddVisitor(Visitor vs)
         {
-            if(_isOpen) _visitors.Add(vs);
-            else Console.WriteLine("Библиотека закрыта!");
+            _visitors.Add(vs);
         }
         public void AddEmployee(Employee emp)
         {
             _employees.Add(emp);
         }
+        #endregion
     }
 }

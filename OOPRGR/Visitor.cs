@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOPRGR
 {
@@ -16,6 +13,7 @@ namespace OOPRGR
         private ulong _phoneNumber;
         private ulong _readerTicketNumber;
         private List<Book> _listBooks;
+        private List<Journal> _listJournal;
         private bool _inLibrary;
         #endregion
 
@@ -29,6 +27,7 @@ namespace OOPRGR
             _phoneNumber = phoneNumber;
             _readerTicketNumber = readetTicketNumber;
             _listBooks = new List<Book>();
+            _listJournal = new List<Journal>();
             _inLibrary = false;
         }
         #endregion
@@ -37,6 +36,10 @@ namespace OOPRGR
         public string Name
         {
             get { return _fullName;}
+        }
+        public bool InLibrary
+        {
+            get { return _inLibrary; }
         }
         public uint SeriesPassport
         {
@@ -120,7 +123,10 @@ namespace OOPRGR
         {
             _listBooks.Add(b);
         }
-
+        public void TakeJournal(Journal b)
+        {
+            _listJournal.Add(b);
+        }
         #endregion
     }
 }

@@ -1,19 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOPRGR
 {
     class Cleaner : Employee
     {
+        #region Конструктор
         public Cleaner(string fullName, string diplomNumber, uint salary) : base(fullName, diplomNumber, "Уборщик", salary)
         {
         }
-        public override void Action()
+        #endregion
+
+        #region Методы
+        public override void DoOneJob()
         {
-            Console.WriteLine("Уборщик " + Name + " начал убирать в библиотеке.");
+            Console.WriteLine("Уборщик " + Name + " убирался в одном из отделов библиотеки");
         }
+        #endregion
     }
 }
