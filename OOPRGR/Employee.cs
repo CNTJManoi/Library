@@ -2,7 +2,7 @@
 
 namespace OOPRGR
 {
-    class Employee : IPerson
+    public abstract class Employee : IPerson
     {
         #region Поля
         private string _fullName;
@@ -14,6 +14,13 @@ namespace OOPRGR
         #endregion
 
         #region Конструктор
+        /// <summary>
+        /// Абстрактный класс описывающий рабочего в библиотеке
+        /// </summary>
+        /// <param name="fullName">Полное имя</param>
+        /// <param name="diplomNumber">Номер диплома</param>
+        /// <param name="position">Должность</param>
+        /// <param name="salary">ЗАрплата</param>
         public Employee(string fullName, string diplomNumber, string position, uint salary)
         {
             _fullName = fullName;
@@ -109,6 +116,9 @@ namespace OOPRGR
         #endregion
 
         #region Методы
+        /// <summary>
+        /// Начать работу
+        /// </summary>
         public void StartJob()
         {
             if (!DoJob)
@@ -121,6 +131,9 @@ namespace OOPRGR
                 Console.WriteLine("Работник " + Name + " и так работает.");
             }
         }
+        /// <summary>
+        /// Прекратить работу
+        /// </summary>
         public void EndJob()
         {
             if (DoJob)
@@ -133,7 +146,9 @@ namespace OOPRGR
                 Console.WriteLine("Работник " + Name + " уже не работает.");
             }
         }
-
+        /// <summary>
+        /// Осуществить одно рабочее действие
+        /// </summary>
         public virtual void DoOneJob()
         {
             Console.WriteLine("Рабочий " + Name + " совершает одно рабочее действие.");

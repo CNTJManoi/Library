@@ -15,6 +15,18 @@
         #endregion
 
         #region Конструктор
+        /// <summary>
+        /// Создает экземпляр книги
+        /// </summary>
+        /// <param name="name">Наименование</param>
+        /// <param name="author">Автор</param>
+        /// <param name="publication">Издание</param>
+        /// <param name="yearPublication">Год издания</param>
+        /// <param name="genre">Жанр</param>
+        /// <param name="numberPages">Количество страниц</param>
+        /// <param name="ISBN">ISBN код</param>
+        /// <param name="location">Местоположение в библиотеке</param>
+        /// <param name="count">Количество экземпляров в библиотеке</param>
         public Book(string name, string author, string publication, ushort yearPublication, string genre, uint numberPages, string ISBN, string location, uint count)
         {
             _name = name;

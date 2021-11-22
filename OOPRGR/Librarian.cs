@@ -5,6 +5,12 @@ namespace OOPRGR
     class Librarian : Employee
     {
         #region Конструктор
+        /// <summary>
+        /// Создание библиотекаря
+        /// </summary>
+        /// <param name="fullName">Полное имя</param>
+        /// <param name="diplomNumber">Номер диплома</param>
+        /// <param name="salary">Зарплата</param>
         public Librarian(string fullName, string diplomNumber, uint salary) : base(fullName, diplomNumber, "Библиотекарь", salary)
         {
         }

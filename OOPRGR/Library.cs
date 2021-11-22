@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace OOPRGR
@@ -58,7 +59,7 @@ namespace OOPRGR
             get { return _isOpen; }
             set { _isOpen = value; }
         }
-        #endregion
+        #endregion  
 
         #region Методы
         public void ListEmployees()
@@ -75,7 +76,7 @@ namespace OOPRGR
         {
             Console.WriteLine("Список книг в библиотеке: ");
             int i = 1;
-            foreach (var book in _catalog.BookList)
+            foreach (Book book in this.GetList())
             {
                 Console.WriteLine(i.ToString() + ": " + book.GetName + "/" + book.GetAuthor + "/" + book.GetPublication +
                                   "/" + book.GetNumberPages + "/" + book.GetISBN + " находится: " + book.Location + " в количестве " + book.Count);
@@ -86,7 +87,7 @@ namespace OOPRGR
         {
             Console.WriteLine("Список журналов в библиотеке: ");
             int i = 1;
-            foreach (var book in _catalog.JournalList)
+            foreach (Journal book in this.GetList(1))
             {
                 Console.WriteLine(i.ToString() + ": " + book.GetName + "/" + book.GetAuthor
                                   + " находится: " + book.Location + " в количестве " + book.Count);
@@ -110,6 +111,28 @@ namespace OOPRGR
         public void AddEmployee(Employee emp)
         {
             _employees.Add(emp);
+        }
+        /// <summary>
+        /// Возвращает перечисляемый список книг или журналов
+        /// </summary>
+        /// <param name="i">0 - Книга, 1 - Журнал</param>
+        /// <returns></returns>
+        public IEnumerable GetList(int i = 0)
+        {
+            if (i == 0)
+            {
+                for (int j = 0; j < _catalog.BookList.Count; j++)
+                {
+                    yield return _catalog.BookList[j];
+                }
+            }
+            else
+            {
+                for (int j = 0; j < _catalog.JournalList.Count; j++)
+                {
+                    yield return _catalog.JournalList[j];
+                }
+            }
         }
         #endregion
     }

@@ -11,6 +11,14 @@
         #endregion
 
         #region Конструктор
+        /// <summary>
+        /// Создает экземпляр книги
+        /// </summary>
+        /// <param name="name">Наименование</param>
+        /// <param name="author">Автор</param>
+        /// <param name="yearPublication">Год публикации</param>
+        /// <param name="location">Местоположение в библиотеке</param>
+        /// <param name="count">Количество экземпляров в библиотеке</param>
         public Journal(string name, string author, ushort yearPublication, string location, uint count)
         {
             _name = name;

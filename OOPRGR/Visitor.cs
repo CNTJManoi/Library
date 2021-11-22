@@ -18,6 +18,15 @@ namespace OOPRGR
         #endregion
 
         #region Конструктор
+        /// <summary>
+        /// Создание посетителя
+        /// </summary>
+        /// <param name="fullName">Полное имя</param>
+        /// <param name="seriesPassport">Серия паспорта</param>
+        /// <param name="numberPassport">Номер паспорта</param>
+        /// <param name="address">Адрес жительства</param>
+        /// <param name="phoneNumber">Номер телефона</param>
+        /// <param name="readetTicketNumber">Номер читательского билета</param>
         public Visitor(string fullName, uint seriesPassport,uint  numberPassport, string address, ulong phoneNumber, ulong readetTicketNumber)
         {
             _fullName = fullName;
@@ -118,11 +127,18 @@ namespace OOPRGR
         #endregion
 
         #region Методы
-
+        /// <summary>
+        /// Взять книгу
+        /// </summary>
+        /// <param name="b">Экземпляр книги</param>
         public void TakeBook(Book b)
         {
             _listBooks.Add(b);
         }
+        /// <summary>
+        /// Взять журнал
+        /// </summary>
+        /// <param name="b">Экземпляр журнала</param>
         public void TakeJournal(Journal b)
         {
             _listJournal.Add(b);

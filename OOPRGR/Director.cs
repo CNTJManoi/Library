@@ -5,6 +5,12 @@ namespace OOPRGR
     class Director : Employee
     {
         #region Конструктор
+        /// <summary>
+        /// Создает директора
+        /// </summary>
+        /// <param name="fullName">Полное имя</param>
+        /// <param name="diplomNumber">Номер диплома</param>
+        /// <param name="salary">Зарплата</param>
         public Director(string fullName, string diplomNumber, uint salary) : base(fullName, diplomNumber, "Директор", salary) { }
         #endregion
 

@@ -5,7 +5,13 @@ namespace OOPRGR
     class Cleaner : Employee
     {
         #region Конструктор
-        public Cleaner(string fullName, string diplomNumber, uint salary) : base(fullName, diplomNumber, "Уборщик", salary)
+        /// <summary>
+        /// Создает уборщика
+        /// </summary>
+        /// <param name="fullName">Полное имя</param>
+        /// <param name="diplomNumber">Номере диплома. Если отсутствует, то 0</param>
+        /// <param name="salary">Зарплата</param>
+        public Cleaner(string fullName, string diplomNumber = "0", uint salary) : base(fullName, diplomNumber, "Уборщик", salary)
         {
         }
         #endregion

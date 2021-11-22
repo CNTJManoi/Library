@@ -10,6 +10,9 @@ namespace OOPRGR
         #endregion
 
         #region Конструктор
+        /// <summary>
+        /// Создает каталог содержащий всю информацию о книгах в библиотеке
+        /// </summary>
         public Catalog()
         {
             _avaliableBooks = new List<Book>();
@@ -23,11 +26,18 @@ namespace OOPRGR
         #endregion
 
         #region Методы
+        /// <summary>
+        /// Добавляет книгу в библиотеку
+        /// </summary>
+        /// <param name="b">Экземпляр класса книги</param>
         public void AddBooks(Book b)
         {
             _avaliableBooks.Add(b);
         }
-
+        /// <summary>
+        /// Добавляет журнал в библиотеку
+        /// </summary>
+        /// <param name="b">Экземпляр класса журнала</param>
         public void AddJournal(Journal j)
         {
             _avaliableJournals.Add(j);
