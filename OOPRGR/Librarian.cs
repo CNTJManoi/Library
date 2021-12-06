@@ -17,6 +17,9 @@ namespace OOPRGR
         #endregion
 
         #region Методы
+        /// <summary>
+        /// Метод осуществляет одно действие библиотекаря
+        /// </summary>
         public override void DoOneJob()
         {
             Console.WriteLine("Библиотекарь " + Name + " расставляет книги и журналы");

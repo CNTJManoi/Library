@@ -136,7 +136,7 @@ namespace OOPRGR
                                 l.AddEmployee(new Director(fulln, diplomNumb, salary));
                                 break;
                             case 2:
-                                l.AddEmployee(new Cleaner(fulln, diplomNumb, salary));
+                                l.AddEmployee(new Cleaner(fulln, salary, diplomNumb));
                                 break;
                             case 3:
                                 l.AddEmployee(new Librarian(fulln, diplomNumb, salary));
@@ -610,12 +610,17 @@ namespace OOPRGR
             }
         }
 
+        /// <summary>
+        /// Установка цвета текста в консоли на режим "Служебный"
+        /// </summary>
         private static void SetConsoleNotificationColor()
         {
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Red;
         }
-
+        /// <summary>
+        /// Установка цвета текста в консоли на режим "Обычный"
+        /// </summary>
         private static void SetConsoleDefaultColor()
         {
             Console.BackgroundColor = _defaultBackground;

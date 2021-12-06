@@ -21,7 +21,13 @@ namespace OOPRGR
         #endregion
 
         #region Свойства
+        /// <summary>
+        /// Возвращает список книг в каталоге
+        /// </summary>
         public List<Book> BookList { get { return _avaliableBooks; } }
+        /// <summary>
+        /// Возвращает список журналов в каталоге
+        /// </summary>
         public List<Journal> JournalList { get { return _avaliableJournals; } }
         #endregion
 

@@ -42,17 +42,44 @@
         #endregion
 
         #region Свойства
+        /// <summary>
+        /// Возвращает наименование книги
+        /// </summary>
         public string GetName { get { return _name; } }
+        /// <summary>
+        /// Возвращает автора книги
+        /// </summary>
         public string GetAuthor { get { return _author; } }
+        /// <summary>
+        /// Возвращает издание выпустившее книгу
+        /// </summary>
         public string GetPublication { get { return _publication; } }
+        /// <summary>
+        /// Возвращает год издания книги
+        /// </summary>
         public ushort GetYearPublication { get { return _yearPublication; } }
+        /// <summary>
+        /// Возвращает жанр книги
+        /// </summary>
         public string GetGenre { get { return _genre; } }
+        /// <summary>
+        /// Возвращает количество страниц в книге
+        /// </summary>
         public uint GetNumberPages { get { return _numberPages; } }
+        /// <summary>
+        /// Возвращает ISBN код книги
+        /// </summary>
         public string GetISBN { get { return _ISBN; } }
+        /// <summary>
+        /// Возвращает или задает местоположение книги в библиотеке
+        /// </summary>
         public string Location { 
             get { return _location; } 
             set { _location = value; }
         }
+        /// <summary>
+        /// Возвращает или задает количество экземпляров книги в библиотеке
+        /// </summary>
         public uint Count { 
             get { return _count; }
             set { _count = value; }

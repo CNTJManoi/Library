@@ -17,6 +17,13 @@ namespace OOPRGR
         #endregion
 
         #region Конструктор
+        /// <summary>
+        /// Создание библиотеки
+        /// </summary>
+        /// <param name="name">Наименование</param>
+        /// <param name="timetable">Расписание</param>
+        /// <param name="rules">Список правил</param>
+        /// <param name="catalog">Экземпляр класса каталога</param>
         public Library(string name, string timetable, string rules, Catalog catalog)
         {
             _name = name;
@@ -30,30 +37,50 @@ namespace OOPRGR
         #endregion
 
         #region Свойства
+        /// <summary>
+        /// Возвращает экземпляр каталога
+        /// </summary>
         public Catalog GetCatalog { get { return _catalog; } }
-
+        /// <summary>
+        /// Возвращает перечисляемый список рабочих
+        /// </summary>
         public List<Employee> Employees
         {
             get { return _employees; }
         }
+        /// <summary>
+        /// Возвращает перечисляемый список посетителей
+        /// </summary>
         public List<Visitor> Visitors
         {
             get { return _visitors; }
         }
+        /// <summary>
+        /// Возвраает наименование библиотеки
+        /// </summary>
         public string Name
         {
             get { return _name; }
         }
+        /// <summary>
+        /// Возвращает расписание работы библиотеки
+        /// </summary>
         public string TimeTable
         {
             get { return _timetable; }
             set { _timetable = value; }
         }
+        /// <summary>
+        /// Возвращает строку правил библиотеки
+        /// </summary>
         public string Rules
         {
             get { return _rules; }
             set { _rules = value; }
         }
+        /// <summary>
+        /// Вовзращает состояние библиотеки. True - открыта, False - закрыта
+        /// </summary>
         public bool OpenOrClose
         {
             get { return _isOpen; }
@@ -62,6 +89,9 @@ namespace OOPRGR
         #endregion  
 
         #region Методы
+        /// <summary>
+        /// Выводит список рабочих в библиотеке
+        /// </summary>
         public void ListEmployees()
         {
             int i = 1;
@@ -72,6 +102,9 @@ namespace OOPRGR
                 i++;
             }
         }
+        /// <summary>
+        /// Выводит список книг в библиотеке
+        /// </summary>
         public void BooksList()
         {
             Console.WriteLine("Список книг в библиотеке: ");
@@ -83,6 +116,9 @@ namespace OOPRGR
                 i++;
             }
         }
+        /// <summary>
+        /// Выводит список журналов в библиотеке
+        /// </summary>
         public void JournalList()
         {
             Console.WriteLine("Список журналов в библиотеке: ");
@@ -94,6 +130,9 @@ namespace OOPRGR
                 i++;
             }
         }
+        /// <summary>
+        /// Выводит список посетителей в библиотеке
+        /// </summary>
         public void VisitorsList()
         {
             int i = 1;
@@ -104,10 +143,18 @@ namespace OOPRGR
                 i++;
             }
         }
+        /// <summary>
+        /// Добавляет нового посетителя в библиотеку
+        /// </summary>
+        /// <param name="vs">Экземпляр класса посетителя</param>
         public void AddVisitor(Visitor vs)
         {
             _visitors.Add(vs);
         }
+        /// <summary>
+        /// Добавляет нового рабочего в библиотеку
+        /// </summary>
+        /// <param name="emp">Экземпляр класса рабочего</param>
         public void AddEmployee(Employee emp)
         {
             _employees.Add(emp);
@@ -116,7 +163,7 @@ namespace OOPRGR
         /// Возвращает перечисляемый список книг или журналов
         /// </summary>
         /// <param name="i">0 - Книга, 1 - Журнал</param>
-        /// <returns></returns>
+        /// <returns>IEnumarable список книг или журналов</returns>
         public IEnumerable GetList(int i = 0)
         {
             if (i == 0)

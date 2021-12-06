@@ -30,14 +30,29 @@
         #endregion
 
         #region Свойства
+        /// <summary>
+        /// Возвращает наименование журнала
+        /// </summary>
         public string GetName { get { return _name; } }
+        /// <summary>
+        /// Возвращает автора книги
+        /// </summary>
         public string GetAuthor { get { return _author; } }
+        /// <summary>
+        /// Возвращает год издания книги
+        /// </summary>
         public ushort GetYearPublication { get { return _yearPublication; } }
+        /// <summary>
+        /// Возвращает или задает местоположение журнала в библиотеке
+        /// </summary>
         public string Location
         {
             get { return _location; }
             set { _location = value; }
         }
+        /// <summary>
+        /// Возвращает или задает количество экземпляров журнала в библиотеке
+        /// </summary>
         public uint Count
         {
             get { return _count; }

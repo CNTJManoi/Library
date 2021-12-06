@@ -15,6 +15,9 @@ namespace OOPRGR
         #endregion
 
         #region Методы
+        /// <summary>
+        /// Метод позволяет выполнить одно действие директора
+        /// </summary>
         public override void DoOneJob()
         {
             Console.WriteLine("Директор " + Name + " приказывает другим работать");
