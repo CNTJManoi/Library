@@ -17,6 +17,13 @@ namespace OOPRGR
         #endregion
 
         #region Конструктор
+        /// <summary>
+        /// Создание библиотеки
+        /// </summary>
+        /// <param name="name">Наименование</param>
+        /// <param name="timetable">Расписание</param>
+        /// <param name="rules">Список правил</param>
+        /// <param name="catalog">Экземпляр класса каталога</param>
         public Library(string name, string timetable, string rules, Catalog catalog)
         {
             _name = name;
@@ -156,7 +163,7 @@ namespace OOPRGR
         /// Возвращает перечисляемый список книг или журналов
         /// </summary>
         /// <param name="i">0 - Книга, 1 - Журнал</param>
-        /// <returns></returns>
+        /// <returns>IEnumarable список книг или журналов</returns>
         public IEnumerable GetList(int i = 0)
         {
             if (i == 0)

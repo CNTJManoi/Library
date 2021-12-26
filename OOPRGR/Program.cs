@@ -613,12 +613,17 @@ namespace OOPRGR
             }
         }
 
+        /// <summary>
+        /// Установка цвета текста в консоли на режим "Служебный"
+        /// </summary>
         private static void SetConsoleNotificationColor()
         {
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Red;
         }
-
+        /// <summary>
+        /// Установка цвета текста в консоли на режим "Обычный"
+        /// </summary>
         private static void SetConsoleDefaultColor()
         {
             Console.BackgroundColor = _defaultBackground;
