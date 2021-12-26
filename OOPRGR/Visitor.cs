@@ -42,32 +42,57 @@ namespace OOPRGR
         #endregion
 
         #region Свойства
+        /// <summary>
+        /// Возвращает имя посетителя
+        /// </summary>
         public string Name
         {
-            get { return _fullName;}
+            get { return _fullName; }
         }
+        /// <summary>
+        /// Возвращает состояние посетителя. True - в библиотеке, False - не в библиотеке
+        /// </summary>
         public bool InLibrary
         {
             get { return _inLibrary; }
         }
+        /// <summary>
+        /// Возвращает серию паспорта
+        /// </summary>
         public uint SeriesPassport
         {
-            get { return _seriesPassport;}
+            get { return _seriesPassport; }
             set { _seriesPassport = value; }
         }
-        public uint NumberPassport {
+        /// <summary>
+        /// Возвращает номер паспорта
+        /// </summary>
+        public uint NumberPassport
+        {
             get { return _numberPassport; }
             set { _numberPassport = value; }
         }
-        public string Address {
+        /// <summary>
+        /// Возвращает адрес жительства посетителя
+        /// </summary>
+        public string Address
+        {
             get { return _address; }
             set { _address = value; }
         }
-        public ulong PhoneNumber {
+        /// <summary>
+        /// Возвраает номер телефона посетителя
+        /// </summary>
+        public ulong PhoneNumber
+        {
             get { return _phoneNumber; }
             set { _phoneNumber = value; }
         }
-        public ulong ReaderTicketNumber {
+        /// <summary>
+        /// Возвращает номер читательского билета посетителя
+        /// </summary>
+        public ulong ReaderTicketNumber
+        {
             get { return _readerTicketNumber; }
         }
 

@@ -33,30 +33,48 @@ namespace OOPRGR
         #endregion
 
         #region Свойства
+        /// <summary>
+        /// Возвращает полное имя рабочего
+        /// </summary>
         public string Name
         {
             get { return _fullName; }
         }
+        /// <summary>
+        /// Указывает состояние рабочего. Находится ли он в библиотеке
+        /// </summary>
         public bool InLibrary
         {
             get { return _inLibrary; }
             private set { _inLibrary = value; }
         }
+        /// <summary>
+        /// Указывает состояние рабочего. Выполняет ли он сейчас свою работу
+        /// </summary>
         public bool DoJob
         {
             get { return _doJob; }
             private set { _doJob = value; }
         }
+        /// <summary>
+        /// Возвращает должность рабочего
+        /// </summary>
         public string Position
         {
             get { return _position; }
             set { _position = value; }
         }
+        /// <summary>
+        /// Возвращает зарплату
+        /// </summary>
         public uint Salary
         {
             get { return _salary; }
             set { _salary = value; }
         }
+        /// <summary>
+        /// Возвращает информацию о дипломе
+        /// </summary>
         public string DiplomInfo
         {
             get { return _diplomNumber; }

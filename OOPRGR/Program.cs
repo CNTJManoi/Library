@@ -16,6 +16,7 @@ namespace OOPRGR
 
             //Тестовые данные
             var l = new Library("Хорошее место", "Каждый день с 8:00 до 22:00", "Не шуметь...", new Catalog());
+            l.GetCatalog.RegisterHandler(new NotificationHandler(Print_Message));
             Employee director1 = new Director("Иванченко Владислав Антонович", "5004-354956", 85000);
             l.GetCatalog.AddBooks(new Book("В царстве животных", "Иванов И.И.", "Москва-Река", 2021, "Фантастика", 254,
                 "12312-12312-12312", "2 полка в 3 ряду", 20));
@@ -119,6 +120,7 @@ namespace OOPRGR
                             {
                                 action2 = byte.MaxValue;
                                 Console.WriteLine("Введите корректное значение!");
+                                Console.Write("Ваш выбор: ");
                             }
 
                         if (action2 == 0) break;
@@ -136,7 +138,7 @@ namespace OOPRGR
                                 l.AddEmployee(new Director(fulln, diplomNumb, salary));
                                 break;
                             case 2:
-                                l.AddEmployee(new Cleaner(fulln, diplomNumb, salary));
+                                l.AddEmployee(new Cleaner(fulln, salary, diplomNumb));
                                 break;
                             case 3:
                                 l.AddEmployee(new Librarian(fulln, diplomNumb, salary));
@@ -174,6 +176,7 @@ namespace OOPRGR
                             {
                                 action3 = uint.MaxValue;
                                 Console.WriteLine("Введите корректное значение!");
+                                Console.Write("Ваш выбор: ");
                             }
 
                         var number = action3 - 1;
@@ -207,6 +210,7 @@ namespace OOPRGR
                                 {
                                     action31 = byte.MaxValue;
                                     Console.WriteLine("Введите корректное значение!");
+                                    Console.Write("Ваш выбор: ");
                                 }
 
                             Console.Clear();
@@ -243,11 +247,10 @@ namespace OOPRGR
                                         }
 
                                     Console.WriteLine();
-                                    if (l.GetCatalog.BookList[(int) (selectedBook - 1)].Count > 0)
+                                    if (l.GetCatalog.RemoveBooks(l.GetCatalog.BookList[(int)(selectedBook - 1)]))
                                     {
-                                        l.Visitors[(int) number]
-                                            .TakeBook(l.GetCatalog.BookList[(int) (selectedBook - 1)]);
-                                        l.GetCatalog.BookList[(int) (selectedBook - 1)].Count -= 1;
+                                        l.Visitors[(int)number]
+                                            .TakeBook(l.GetCatalog.BookList[(int)(selectedBook - 1)]);
                                     }
                                     else
                                     {
@@ -289,11 +292,10 @@ namespace OOPRGR
                                         }
 
                                     Console.WriteLine();
-                                    if (l.GetCatalog.JournalList[(int) (selectedJournal - 1)].Count > 0)
+                                    if (l.GetCatalog.RemoveJounal(l.GetCatalog.JournalList[(int)(selectedJournal - 1)]))
                                     {
                                         l.Visitors[(int) number]
                                             .TakeJournal(l.GetCatalog.JournalList[(int) (selectedJournal - 1)]);
-                                        l.GetCatalog.JournalList[(int) (selectedJournal - 1)].Count -= 1;
                                     }
                                     else
                                     {
@@ -375,6 +377,7 @@ namespace OOPRGR
                             {
                                 action4 = uint.MaxValue;
                                 Console.WriteLine("Введите корректное значение!");
+                                Console.Write("Ваш выбор: ");
                             }
 
                         var numberEmp = action4 - 1;
@@ -620,6 +623,14 @@ namespace OOPRGR
         {
             Console.BackgroundColor = _defaultBackground;
             Console.ForegroundColor = _defaultForeground;
+        }
+
+        public static void Print_Message(string message)
+        {
+            SetConsoleNotificationColor();
+            Console.Write("Новое оповещение:");
+            SetConsoleDefaultColor();
+            Console.WriteLine(" " + message);
         }
     }
 }
