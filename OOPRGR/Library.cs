@@ -24,12 +24,12 @@ namespace OOPRGR
         /// <param name="timetable">Расписание</param>
         /// <param name="rules">Список правил</param>
         /// <param name="catalog">Экземпляр класса каталога</param>
-        public Library(string name, string timetable, string rules, Catalog catalog)
+        public Library(string name, string timetable, string rules)
         {
             _name = name;
             _timetable = timetable;
             _rules = rules;
-            _catalog = catalog;
+            _catalog = new Catalog();
             _isOpen = false;
             _employees = new List<Employee>();
             _visitors = new List<Visitor>();

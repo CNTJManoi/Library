@@ -15,7 +15,7 @@ namespace OOPRGR
             #region Тестовые данные
 
             //Тестовые данные
-            var l = new Library("Хорошее место", "Каждый день с 8:00 до 22:00", "Не шуметь...", new Catalog());
+            var l = new Library("Хорошее место", "Каждый день с 8:00 до 22:00", "Не шуметь...");
             l.GetCatalog.RegisterHandler(new NotificationHandler(Print_Message));
             Employee director1 = new Director("Иванченко Владислав Антонович", "5004-354956", 85000);
             l.GetCatalog.AddBooks(new Book("В царстве животных", "Иванов И.И.", "Москва-Река", 2021, "Фантастика", 254,
